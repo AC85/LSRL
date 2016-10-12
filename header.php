@@ -10,5 +10,4 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/styles/main.css">
 
     <script src="<?php echo get_template_directory_uri(); ?>/vendor/jquery/jquery-3.1.0.min.js"></script>
-    <script src="<?php echo get_template_directory_uri(); ?>/scripts/main.js"></script>
 </head>

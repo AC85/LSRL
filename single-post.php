@@ -69,6 +69,9 @@ if (have_rows('beitragsbilder')) {
         </div>
     </div>
 </section>
+
+<?php include('footer.php');?>
+
 </body>
 <?php endwhile; ?>
 <?php endif; ?>
