@@ -202,6 +202,18 @@ h2 {
     padding: 62px 66px 0 10px;
 }
 
+article > a {
+    text-decoration: none;
+}
+
+article:hover {
+    background-color: #c0c0c0;
+}
+
+article > a:visited {
+    background-color: #aac0ab;
+}
+
 div.image-crop {
     height: 12vw;
     width: 100%;

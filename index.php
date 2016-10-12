@@ -87,15 +87,17 @@
             <?php $project_posts = new WP_Query(array('category_name' => 'lehrveranstaltungen')); ?>
             <?php while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
                 <article>
-                    <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
-                        <?php if (get_sub_field('titelbild')) : ?>
-                            <?php $image = get_sub_field('bild'); ?>
-                            <div class="image-crop"><img src="<?php echo $image['url']; ?>"
-                                                         alt="<?php echo $image['alt']; ?>"/></div>
-                        <?php endif; ?>
-                    <?php endwhile; endif; ?>
-                    <h4><?php the_title(); ?></h4>
-                    <p><?php the_excerpt(); ?></p>
+                    <a href="<?php the_permalink(); ?>">
+                        <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
+                            <?php if (get_sub_field('titelbild')) : ?>
+                                <?php $image = get_sub_field('bild'); ?>
+                                <div class="image-crop"><img src="<?php echo $image['url']; ?>"
+                                                             alt="<?php echo $image['alt']; ?>"/></div>
+                            <?php endif; ?>
+                        <?php endwhile; endif; ?>
+                        <h4><?php the_title(); ?></h4>
+                        <p><?php the_excerpt(); ?></p>
+                    </a>
                 </article>
             <?php endwhile; ?>
         </div>
@@ -107,15 +109,17 @@
             <?php $project_posts = new WP_Query(array('category_name' => 'projekte')); ?>
             <?php while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
                 <article>
-                <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
-                        <?php if (get_sub_field('titelbild')) : ?>
-                            <?php $image = get_sub_field('bild'); ?>
-                            <div class="image-crop"><img src="<?php echo $image['url']; ?>"
-                                                         alt="<?php echo $image['alt']; ?>"/></div>
-                        <?php endif; ?>
-                    <?php endwhile; endif; ?>
-                <h4><?php the_title(); ?></h4>
-                <p><?php the_excerpt(); ?></p>
+                    <a href="<?php the_permalink(); ?>">
+                        <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
+                            <?php if (get_sub_field('titelbild')) : ?>
+                                <?php $image = get_sub_field('bild'); ?>
+                                <div class="image-crop"><img src="<?php echo $image['url']; ?>"
+                                                             alt="<?php echo $image['alt']; ?>"/></div>
+                            <?php endif; ?>
+                        <?php endwhile; endif; ?>
+                        <h4><?php the_title(); ?></h4>
+                        <p><?php the_excerpt(); ?></p>
+                    </a>
                 </article>
             <?php endwhile; ?>
         </div>
@@ -152,6 +156,6 @@
 
 <script src="<?php echo get_template_directory_uri(); ?>/scripts/main.js"></script>
 
-<?php include('footer.php');?>
+<?php include('footer.php'); ?>
 </body>
 </html>
