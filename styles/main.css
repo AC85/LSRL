@@ -1,8 +1,36 @@
+@font-face {
+    font-family: 'RichterGrotesk-Bold';
+    src: url('../assets/fonts/richtergrotesk-bold.eot'); /* IE9 Compat Modes */
+    src: url('../assets/fonts/richtergrotesk-bold.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../assets/fonts/richtergrotesk-bold.woff') format('woff') /* Pretty Modern Browsers */
+}
+
+@font-face {
+    font-family: 'RichterGrotesk-Light';
+    src: url('../assets/fonts/richtergrotesk-light.eot'); /* IE9 Compat Modes */
+    src: url('../assets/fonts/richtergrotesk-light.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../assets/fonts/richtergrotesk-light.woff') format('woff') /* Pretty Modern Browsers */
+}
+
+@font-face {
+    font-family: 'RichterGrotesk-Regular';
+    src: url('../assets/fonts/richtergrotesk-regular.eot'); /* IE9 Compat Modes */
+    src: url('../assets/fonts/richtergrotesk-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../assets/fonts/richtergrotesk-regular.woff') format('woff') /* Pretty Modern Browsers */
+}
+
 /* reset CSS */
 h1, h2, h3, h4, h5, p {
+    word-wrap:break-word;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
     color: #454544;
+    font-family: "RichterGrotesk-Light", sans-serif;
+}
+
+b, strong {
+    font-family: "RichterGrotesk-Regular", sans-serif;
+    font-weight: normal;
 }
 
 /*  SECTIONS  */
@@ -159,6 +187,7 @@ h2 {
     font-size: 22px;
     line-height: 1.2;
     padding-bottom: 20px;
+    font-family: RichterGrotesk-Regular, sans-serif;
 }
 
 .content section .inner {
@@ -174,6 +203,7 @@ h2 {
 }
 
 div.image-crop {
+    height: 12vw;
     width: 100%;
     overflow: hidden;
     display: -webkit-box;
@@ -251,6 +281,7 @@ span.caption {
 h3 {
     padding-bottom: 36px;
     font-size: 22px;
+    font-family: RichterGrotesk-Regular, sans-serif;
 }
 
 h4 {
@@ -259,7 +290,7 @@ h4 {
 }
 
 section img {
-    min-width: 100%;
+    /*min-width: 100%;*/
     min-height: 100%;
 }
 
