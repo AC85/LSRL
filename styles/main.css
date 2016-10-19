@@ -22,10 +22,12 @@
 /* reset CSS */
 h1, h2, h3, h4, h5, p {
     word-wrap:break-word;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
     color: #454544;
     font-family: "RichterGrotesk-Light", sans-serif;
+}
+h1, h2, h3, h4, h5 {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
 }
 
 b, strong {
@@ -173,6 +175,8 @@ section.introduction p {
 
 section.detail img {
     width: 100%;
+    min-height: auto;
+    height: auto;
 }
 
 p.left-introduction {
@@ -245,6 +249,9 @@ div.image-crop {
 
 .detail-content {
     padding-left: 20px;
+}
+.detail-content p:first-child {
+    -webkit-margin-before: 0;
 }
 
 span.caption {

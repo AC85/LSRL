@@ -25,7 +25,7 @@ if (have_rows('beitragsbilder')) {
         <?php the_title();?>
     </h1>
     <div class="col u-1-5 logo">
-        <img src="http://lorempixel.com/80/50/">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lslr_logo.svg">
     </div>
     <div class="mobile-menu">
         <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -44,7 +44,10 @@ if (have_rows('beitragsbilder')) {
     <div class="section group">
         <div class="col u-3-5">
             <?php foreach ($titlePictures as $image): ?>
-                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"/>
+                <img src="<?php echo $image['url']; ?>"
+                     alt="<?php echo $image['alt']; ?>"
+                     width="<?php echo $image['width'] ?>"
+                     height="<?php echo $image['height'] ?>"/>
                 <span class="caption">
                    <?php echo $image['description']; ?>
                 </span>
@@ -52,9 +55,9 @@ if (have_rows('beitragsbilder')) {
         </div>
                 <div class="col u-2-5">
                     <div class="detail-content">
-                        <p>
+
                             <?php echo the_content(); ?>
-                        </p>
+
                     </div>
                 </div>
     </div>
