@@ -15,7 +15,7 @@
     </div>
     <h1 class="col u-4-5">lighting strategies research lab</h1>
     <div class="col u-1-5 logo">
-        <img src="http://lorempixel.com/80/50/">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lslr_logo.svg">
     </div>
     <div class="mobile-menu">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -154,7 +154,7 @@
 
 </div>
 
-<script src="<?php echo get_template_directory_uri(); ?>/scripts/main.js"></script>
+
 
 <?php include('footer.php'); ?>
 </body>
