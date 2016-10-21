@@ -111,9 +111,12 @@ header div {
     text-align: right;
 }
 
+header .u-1-5.logo {
+    width: 20%;
+}
 header .logo img {
-    height: 50px;
-    width: 80px;
+    height: 56px;
+    width: 100px;
 }
 
 header .mobile-menu svg {
@@ -179,11 +182,11 @@ section.detail img {
     height: auto;
 }
 
-p.left-introduction {
+div.left-introduction {
     padding-right: 20px;
 }
 
-p.right-introduction {
+div.right-introduction {
     padding-left: 20px;
 }
 
@@ -206,12 +209,20 @@ h2 {
     padding: 62px 66px 0 10px;
 }
 
+
+article {
+    transition: all 0.25s ease;
+}
 article > a {
     text-decoration: none;
 }
 
 article:hover {
-    background-color: #c0c0c0;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    cursor: pointer;
+    outline: 10px solid #d6d6d6;
+    background-color: #d6d6d6;
 }
 
 article > a:visited {
@@ -220,6 +231,7 @@ article > a:visited {
 
 div.image-crop {
     height: 12vw;
+    min-height: 200px;
     width: 100%;
     overflow: hidden;
     display: -webkit-box;
@@ -295,6 +307,21 @@ span.caption {
 
 .search.active input {
     display: inline-block;
+}
+
+.additional-links {
+    height: 28px;
+    position: absolute;
+    top: 20px;
+    right: 66px;
+    display: flex;
+    display: -webkit-flex;
+}
+.additional-links a {
+    font-size: 14px;
+    color: #747474;
+    text-decoration: none;
+    font-family: RichterGrotesk-Light, sans-serif;
 }
 
 h3 {

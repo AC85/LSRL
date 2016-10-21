@@ -15,67 +15,47 @@ if (have_rows('beitragsbilder')) {
     }
 }
 ?>
-<!DOCTYPE html>
-<?php include('header.php');?>
-<body>
+
+<?php include('header.php'); ?>
+
 <?php if (have_posts()) : ?>
-<?php while (have_posts()) : the_post(); ?>
-<header class="section group">
-    <h1 class="col u-4-5">
-        <?php the_title();?>
-    </h1>
-    <div class="col u-1-5 logo">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lslr_logo.svg">
-    </div>
-    <div class="mobile-menu">
-        <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-             x="0px" y="0px" viewBox="40.346 32.073 119.308 55.999"
-             enable-background="new 40.346 32.073 119.308 55.999" xml:space="preserve">
-            <path fill="#747474" d="M155.654,40.073H44.346c-2.209,0-4-1.791-4-4s1.791-4,4-4h111.308c2.209,0,4,1.791,4,4
-                S157.863,40.073,155.654,40.073z"/>
-            <path fill="#747474" d="M155.654,64.072H44.346c-2.209,0-4-1.79-4-4c0-2.209,1.791-4,4-4h111.308c2.209,0,4,1.791,4,4
-                C159.654,62.282,157.863,64.072,155.654,64.072z"/>
-            <path fill="#747474" d="M155.654,88.072H44.346c-2.209,0-4-1.791-4-4s1.791-4,4-4h111.308c2.209,0,4,1.791,4,4
-	            S157.863,88.072,155.654,88.072z"/>
-        </svg>
-    </div>
-</header>
-<section class="detail active content">
-    <div class="section group">
-        <div class="col u-3-5">
-            <?php foreach ($titlePictures as $image): ?>
-                <img src="<?php echo $image['url']; ?>"
-                     alt="<?php echo $image['alt']; ?>"
-                     width="<?php echo $image['width'] ?>"
-                     height="<?php echo $image['height'] ?>"/>
-                <span class="caption">
+    <?php while (have_posts()) : the_post(); ?>
+        <section class="detail active content">
+            <div class="section group">
+                <div class="col u-3-5">
+                    <?php foreach ($titlePictures as $image): ?>
+                        <img src="<?php echo $image['url']; ?>"
+                             alt="<?php echo $image['alt']; ?>"
+                             width="<?php echo $image['width'] ?>"
+                             height="<?php echo $image['height'] ?>"/>
+                        <span class="caption">
                    <?php echo $image['description']; ?>
                 </span>
-            <?php endforeach; ?>
-        </div>
+                    <?php endforeach; ?>
+                </div>
                 <div class="col u-2-5">
                     <div class="detail-content">
 
-                            <?php echo the_content(); ?>
+                        <?php echo the_content(); ?>
 
                     </div>
                 </div>
-    </div>
-    <div class="section group">
-        <div class="col u-5-5">
-            <?php foreach ($postPictures as $image): ?>
-                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"/>
-                <span class="caption">
+            </div>
+            <div class="section group">
+                <div class="col u-5-5">
+                    <?php foreach ($postPictures as $image): ?>
+                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>"/>
+                        <span class="caption">
                    <?php echo $image['description']; ?>
                 </span>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
 
-<?php include('footer.php');?>
+        <?php include('footer.php'); ?>
 
-</body>
-<?php endwhile; ?>
+    <?php endwhile; ?>
 <?php endif; ?>
+    </body>
 </html>
