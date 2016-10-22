@@ -9,7 +9,13 @@ document.querySelector(".mobile-menu svg").addEventListener("click", function() 
 
 [].slice.call(document.querySelectorAll(".mobile-menu nav ul li")).map(function(node){
     node.addEventListener("click", function(evt) {
-        if(evt.target.innerText.toLowerCase() === "impressum / datenschutz") {
+        var linkText = evt.target.innerText.toLowerCase();
+        if(linkText === "impressum / datenschutz") {
+            window.location.href = '/impressum';
+            return;
+        }
+        if(linkText === "start") {
+            window.location.href = '/';
             return;
         }
 
@@ -24,7 +30,6 @@ document.querySelector(".mobile-menu svg").addEventListener("click", function() 
 
     });
 });
-
 
 document.querySelector(".search svg").addEventListener("click", function() {
     var search = document.querySelector(".search");

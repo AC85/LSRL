@@ -34,7 +34,7 @@
                     <!-- Do special_cat stuff... -->
 
                     <h3><?php the_title(); ?></h3>
-                    <p><?php the_content(); ?></p>
+                    <?php the_content(); ?>
                 <?php endwhile; ?>
             </div>
         </div>
@@ -66,9 +66,9 @@
         <div class="image-crop"><img src="http://placehold.it/350x150"></div>
         <div class="inner">
             <h3>Projekte</h3>
-            <?php $project_posts = new WP_Query(array('category_name' => 'projekte')); ?>
+            <?php $project_posts = new WP_Query(array('category_name' => 'projekte', 'posts_per_page' => 1)); ?>
             <?php while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
-                <article>
+                <article project-id="<?php the_ID(); ?>">
                     <a href="<?php the_permalink(); ?>">
                         <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
                             <?php if (get_sub_field('titelbild')) : ?>
@@ -93,7 +93,7 @@
                 <!-- Do special_cat stuff... -->
 
                 <h3><?php the_title(); ?></h3>
-                <p><?php the_content(); ?></p>
+                <?php the_content(); ?>
             <?php endwhile; ?>
         </div>
     </section>
@@ -107,7 +107,7 @@
                 <?php $content = apply_filters('the_content', get_the_content()); ?>
 
                 <h3><?php the_title(); ?></h3>
-                <p><?php echo $content; ?></p>
+                <?php echo $content; ?>
             <?php endwhile; ?>
         </div>
     </section>
@@ -116,5 +116,6 @@
 
 
 <?php include('footer.php'); ?>
+<script src="<?php echo get_template_directory_uri(); ?>/scripts/startpage.js"></script>
 </body>
 </html>

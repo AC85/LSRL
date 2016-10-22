@@ -13,7 +13,7 @@ $the_query = new WP_Query( $args ); ?>
 <section class="detail active content">
             <div class="section group">
 
-                <div class="col u-5-5">
+                <div class="col u-3-5">
                     <?php
                     if ( $the_query->have_posts() ): ?>
                         <h2 style='font-weight:bold;color:#000'>Ergebnisse:</h2>
@@ -22,7 +22,7 @@ $the_query = new WP_Query( $args ); ?>
                     while ( $the_query->have_posts() ):
                     $the_query->the_post();
                     ?>
-                    <article>
+                    <article class="search-result">
                         <a href="<?php the_permalink(); ?>">
                             <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
                                 <?php if (get_sub_field('titelbild')) : ?>

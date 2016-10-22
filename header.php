@@ -1,19 +1,19 @@
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
         <?php
-            $wp_title = strlen($overwrite_title) > 0 ? $overwrite_title : get_the_title();
-            $title = 'LSRL - ' . $wp_title;
-
-            $headline = (mb_ereg_match("Startseite", $wp_title)) ? "lighting strategies research lab" : $wp_title;
+        $wp_title = strlen($overwrite_title) > 0 ? $overwrite_title : get_the_title();
+        $title = 'LSRL - ' . $wp_title;
+        $isThisTheStartpage = mb_ereg_match("Startseite", $wp_title);
+        $headline = $isThisTheStartpage ? "lighting strategies research lab" : $wp_title;
         ?>
 
     <?php endwhile; ?>
 <?php else: ?>
     <?php
-        $wp_title = strlen($overwrite_title) > 0 ? $overwrite_title : "404 - Seite nicht gefunden";
-        $title = 'LSRL - ' . $wp_title;
+    $wp_title = strlen($overwrite_title) > 0 ? $overwrite_title : "404 - Seite nicht gefunden";
+    $title = 'LSRL - ' . $wp_title;
 
-        $headline = $wp_title;
+    $headline = $wp_title;
     ?>
 <?php endif; ?>
 <head>
@@ -36,15 +36,21 @@
                 c27.589,0,50.033,22.445,50.033,50.033s-22.444,50.034-50.033,50.034C53.355,131.451,30.91,109.006,30.91,81.417z"/>
         </svg>
         <form action="<?php echo home_url(); ?>" id="search-form" method="get">
-        <input type="text" name="s" id="s" value="<?php echo $_GET['s']; ?>">
-            </form>
+            <input type="text" name="s" id="s" value="<?php echo $_GET['s']; ?>">
+        </form>
     </div>
     <div class="additional-links">
         <a href="/impressum">impressum</a>
     </div>
     <h1 class="col u-4-5"><?php echo $headline; ?></h1>
     <div class="col u-1-5 logo">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lslr_logo.svg">
+        <?php if (!$isThisTheStartpage): ?>
+            <a href="/">
+        <?php endif; ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/lslr_logo.svg">
+        <?php if (!$isThisTheStartpage): ?>
+            </a>
+        <?php endif; ?>
     </div>
     <div class="mobile-menu">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -59,13 +65,16 @@
         </svg>
         <nav>
             <ul>
-                <li>Start</li>
-                <li>Kontakt</li>
-                <li>Lehrveranstaltungen</li>
-                <li>Projekte</li>
-                <li>Arbeitsfeld</li>
-                <li>Personen</li>
-                <li>Impressum / Datenschutz</li>
+                <?php if ($isThisTheStartpage): ?>
+                    <li>Kontakt</li>
+                    <li>Lehrveranstaltungen</li>
+                    <li>Projekte</li>
+                    <li>Arbeitsfeld</li>
+                    <li>Personen</li>
+                    <li>Impressum / Datenschutz</li>
+                <?php else: ?>
+                    <li>Start</li>
+                <?php endif; ?>
             </ul>
         </nav>
     </div>
