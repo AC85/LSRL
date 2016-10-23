@@ -26,12 +26,12 @@ $(window).scroll(function(evt) {
   var projectSectionBottom = projectSection.innerHeight() + projectSection.offset().top;
   var winHeight = $(window).innerHeight();
   var scroll = $(window).scrollTop();
-  var itemsPerLoad = 1;
+  var itemsPerLoad = 5;
 
   if((scroll + (winHeight + 20) >= projectSectionBottom) &&
     !isLoading) {
     var projectsPresent = $("article[project-id]").length;
-    var offset = 1;
+    var offset = projectsPresent;
     isLoading = true;
 
     projectSection.append('<div class="loading">Lade mehr projekte...</div>');

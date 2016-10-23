@@ -66,7 +66,7 @@
         <div class="image-crop"><img src="http://placehold.it/350x150"></div>
         <div class="inner">
             <h3>Projekte</h3>
-            <?php $project_posts = new WP_Query(array('category_name' => 'projekte', 'posts_per_page' => 1)); ?>
+            <?php $project_posts = new WP_Query(array('category_name' => 'projekte', 'posts_per_page' => 5)); ?>
             <?php while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
                 <article project-id="<?php the_ID(); ?>">
                     <a href="<?php the_permalink(); ?>">

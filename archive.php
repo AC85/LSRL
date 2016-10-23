@@ -26,7 +26,7 @@ function fetchTitleImages($acfField) {
     return $imagesArr;
 }
 
-$totalPosts = get_posts(array("category_name" => $currentCategory));
+$totalPosts = get_posts(array("category_name" => $currentCategory, "posts_per_page" => 1000));
 $posts = get_posts($options);
 $postsArr = array(
     "total-items" => count($totalPosts),
