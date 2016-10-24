@@ -253,8 +253,8 @@ article > a:visited {
 }
 
 div.image-crop {
-    height: 12vw;
-    min-height: 200px;
+    min-height: 180px;
+    max-height: 300px;
     width: 100%;
     overflow: hidden;
     display: -webkit-box;
@@ -264,6 +264,11 @@ div.image-crop {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.image-crop img{
+    width: 100%;
+    height: auto;
 }
 
 .content section .inner .image-crop {
@@ -389,7 +394,7 @@ section img {
 
     .logo {
         position: absolute;
-        right: 20px;
+        right: 36px;
     }
 
     .detail-content {

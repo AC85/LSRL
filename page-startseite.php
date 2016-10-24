@@ -25,7 +25,7 @@
 </section>
 <div class="section group content">
     <section class="col u-1-5" data-menu-item="kontakt">
-        <div class="image-crop"><img src="http://lorempixel.com/400/200/"></div>
+        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/kontakt.jpg"></div>
         <div>
             <div class="inner">
                 <?php $my_query = new WP_Query('page_id=16'); ?>
@@ -41,7 +41,7 @@
         <!-- Kontakteseite Ende -->
     </section>
     <section class="col u-1-5" data-menu-item="lehrveranstaltungen">
-        <div class="image-crop"><img src="http://placehold.it/350x150"></div>
+        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/lv.jpg""></div>
         <div class="inner">
             <h3>Lehrveranstaltungen</h3>
             <?php $project_posts = new WP_Query(array('category_name' => 'lehrveranstaltungen')); ?>
@@ -63,7 +63,7 @@
         </div>
     </section>
     <section class="col u-1-5 active" data-menu-item="projekte">
-        <div class="image-crop"><img src="http://placehold.it/350x150"></div>
+        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/projekte.jpg""></div>
         <div class="inner">
             <h3>Projekte</h3>
             <?php $project_posts = new WP_Query(array('category_name' => 'projekte', 'posts_per_page' => 5)); ?>
@@ -85,7 +85,7 @@
         </div>
     </section>
     <section class="col u-1-5" data-menu-item="arbeitsfeld">
-        <div class="image-crop"><img src="http://placehold.it/350x150"></div>
+        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arbeitsfeld.jpg""></div>
         <div class="inner">
             <?php $my_query = new WP_Query('page_id=20'); ?>
 
@@ -98,7 +98,7 @@
         </div>
     </section>
     <section class="col u-1-5" data-menu-item="personen">
-        <div class="image-crop"><img src="http://placehold.it/350x150"></div>
+        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/personen.jpg""></div>
         <div class="inner">
             <?php $my_query = new WP_Query('page_id=18'); ?>
 
