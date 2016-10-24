@@ -18,6 +18,8 @@
 <?php endif; ?>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <title> <?php echo $title; ?> </title>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/vendor/normalize/normalize.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/styles/main.css">
