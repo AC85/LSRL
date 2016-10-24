@@ -2,6 +2,27 @@
 header('Content-Type: application/json');
 ini_set('display_errors', 'on');
 
+/*
+This function is strolen from Stackoverflow
+http://stackoverflow.com/questions/12444945/cut-the-content-after-10-words */
+function shorten_string($string, $wordsreturned)
+{
+    $retval = $string;
+    $string = preg_replace('/(?<=\S,)(?=\S)/', ' ', $string);
+    $string = str_replace("\n", " ", $string);
+    $array = explode(" ", $string);
+    if (count($array)<=$wordsreturned)
+    {
+        $retval = $string;
+    }
+    else
+    {
+        array_splice($array, $wordsreturned);
+        $retval = implode(" ", $array)." ...";
+    }
+    return $retval;
+}
+
 $numItems = $_GET['items'];
 $offset = $_GET['offset'];
 
@@ -40,7 +61,15 @@ foreach ( $posts as $post ) {
     $postArr['id'] = $post->ID;
     $postArr['permalink'] = get_post_permalink($post->ID);
     $postArr['title'] = $post->post_title;
-    $postArr['excerpt'] = $post->post_excerpt;
+    if(strlen($post->post_excerpt) > 0) {
+        $postArr['excerpt'] = $post->post_excerpt;
+    } else {
+        if(strlen($post->post_content) > 0) {
+            $postArr['excerpt'] = shorten_string($post->post_content, 20) . " [...]";
+        } else {
+            $postArr['excerpt'] = "";
+        }
+    }
     $postArr['images'] = $titleImages;
     array_push($postsArr['data'], $postArr);
 }
