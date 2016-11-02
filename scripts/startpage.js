@@ -1,7 +1,7 @@
 var numPostsAvailable = -1;
 var isLoading = false;
-
 var projectSection = $("section[data-menu-item=\"projekte\"] .inner");
+
 var renderNewItems = function(items) {
   items.map(function(item) {
     var imagesMarkup = '<div class="image-crop">';
@@ -36,23 +36,30 @@ $(window).scroll(function(evt) {
 
     projectSection.append('<div class="loading">Lade mehr projekte...</div>');
 
-    if(numPostsAvailable === -1 || numPostsAvailable > projectsPresent) {
-      $.ajax({
-        dataType: "json",
-        url: '/category/projekte',
-        data: 'items=' + itemsPerLoad + '&offset=' + offset,
-        success: function (data) {
-          numPostsAvailable = data['total-items'];
-          if (data['items'] > 0) {
-            renderNewItems(data['data']);
+    window.setTimeout(
+        function() {
+          if(numPostsAvailable === -1 || numPostsAvailable > projectsPresent) {
+            $.ajax({
+              dataType: "json",
+              url: '/category/projekte',
+              data: 'items=' + itemsPerLoad + '&offset=' + offset,
+              success: function (data) {
+                numPostsAvailable = data['total-items'];
+                if (data['items'] > 0) {
+                  renderNewItems(data['data']);
+                }
+                isLoading = false;
+                $('.loading').remove();
+              }
+            });
+          } else {
+            $('.loading').remove();
           }
-          isLoading = false;
-          $('.loading').remove();
-        }
-      });
-    } else {
-      $('.loading').remove();
-    }
+        },
+        500
+    );
+
+
   }
 
 });

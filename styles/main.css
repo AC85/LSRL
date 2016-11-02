@@ -425,6 +425,18 @@ section img {
     height: 36px;
 }
 
+.loading {
+    background-repeat: no-repeat;
+    background-size: 60px;
+    background-position: center;
+    background-image: url(../assets/images/spinner.svg);
+    height: 100px;
+    /* padding-left: 88px; */
+    color: #454544;
+    text-align: center;
+    font-family: 'RichterGrotesk-light', sans-serif;
+}
+
 @media only screen and (max-width: 600px) {
     .u-5-5, .u-4-5, .u-3-5, .u-2-5, .u-1-5, .u-1-5:last-child, .u-1-5:first-child, .u-3-5:last-child, .u-3-5:first-child, .u-4-5:last-child, .u-4-5:first-child, .u-2-5:last-child, .u-2-5:first-child {
         width: 100%;
@@ -436,6 +448,7 @@ section img {
 
     header .mobile-menu {
         display: block;
+        z-index: 1000;
     }
 
     section.introduction, section.detail {
