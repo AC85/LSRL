@@ -253,10 +253,9 @@ article > a:visited {
 }
 
 div.image-crop {
-    min-height: 180px;
-    max-height: 300px;
+    height: 180px;
+
     width: 100%;
-    overflow: hidden;
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -328,7 +327,7 @@ span.caption {
     display: -webkit-flex;
 }
 
-.search svg {
+.search svg, .mobile-search svg {
     height: 100%;
     display: inline-block;
     margin-right: 8px;
@@ -349,6 +348,17 @@ span.caption {
     padding: 2px;
     text-align: right;
     color: #ededed;
+}
+
+.mobile-search input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: #AAA;
+    padding: 4px;
+    text-align: right;
+    color: #ededed;
+    font-size: 20px;
 }
 
 .search.active input {
@@ -384,11 +394,38 @@ h4 {
 
 section img {
     /*min-width: 100%;*/
-    min-height: 100%;
+    /*min-height: 100%;*/
+}
+
+.mobile-search {
+    height: 40px;
+    display:none;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    position:absolute;
+    left: 22px;
+    top: 80px;
+    width: 100px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.back-button a {
+    width: 100%;
+    display: inline-block;
+}
+.back-button:hover {
+    transform: translate3d(-20px, 0, 0);
+    width: 50px;
+}
+.arrow {
+    width: 36px;
+    height: 36px;
 }
 
 @media only screen and (max-width: 600px) {
-
     .u-5-5, .u-4-5, .u-3-5, .u-2-5, .u-1-5, .u-1-5:last-child, .u-1-5:first-child, .u-3-5:last-child, .u-3-5:first-child, .u-4-5:last-child, .u-4-5:first-child, .u-2-5:last-child, .u-2-5:first-child {
         width: 100%;
     }
@@ -424,6 +461,7 @@ section img {
 
     h1 {
         margin-top: 60px;
+        font-size: 25px;
     }
 
     p.left-introduction {
@@ -452,5 +490,14 @@ section img {
 
     section.active {
         display: block;
+    }
+
+    .mobile-search {
+        display: flex;
+        display: -webkit-flex;
+    }
+
+    .back-button {
+        display: none;
     }
 }
