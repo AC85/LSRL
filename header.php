@@ -28,6 +28,13 @@
 </head>
 <body>
 <header class="section group">
+    <div class="back-button">
+        <?php if(!$isThisTheStartpage): ?>
+        <a href="/">
+            <img class="arrow" src="<?php echo get_template_directory_uri(); ?>/assets/images/pfeil.svg">
+        </a>
+        <?php endif; ?>
+    </div>
     <div class="search">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
@@ -77,6 +84,7 @@
                 <?php else: ?>
                     <li>Start</li>
                 <?php endif; ?>
+                    <li>Suche</li>
             </ul>
         </nav>
     </div>
