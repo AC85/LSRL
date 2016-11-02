@@ -264,11 +264,28 @@ div.image-crop {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    overflow:hidden;
+    position: relative;
+}
+
+div.image-crop.bottom {
+    align-items: flex-end;
+    justify-content: center;
+}
+
+div.image-crop.top {
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .image-crop img{
-    width: 100%;
-    height: auto;
+    object-fit: cover;
+    min-height: 180px;
+    min-width: 320px;
+
+    max-height: 200%;
+    max-width: 120%;
 }
 
 .content section .inner .image-crop {

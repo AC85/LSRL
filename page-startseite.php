@@ -41,7 +41,7 @@
         <!-- Kontakteseite Ende -->
     </section>
     <section class="col u-1-5" data-menu-item="lehrveranstaltungen">
-        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/lv.jpg""></div>
+        <div class="image-crop bottom"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/lv.jpg""></div>
         <div class="inner">
             <h3>Lehrveranstaltungen</h3>
             <?php $project_posts = new WP_Query(array('category_name' => 'lehrveranstaltungen')); ?>
@@ -63,7 +63,7 @@
         </div>
     </section>
     <section class="col u-1-5 active" data-menu-item="projekte">
-        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/projekte.jpg""></div>
+        <div class="image-crop bottom"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/projekte.jpg""></div>
         <div class="inner">
             <h3>Projekte</h3>
             <?php $project_posts = new WP_Query(array('category_name' => 'projekte', 'posts_per_page' => 5)); ?>
@@ -85,7 +85,7 @@
         </div>
     </section>
     <section class="col u-1-5" data-menu-item="arbeitsfeld">
-        <div class="image-crop"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arbeitsfeld.jpg""></div>
+        <div class="image-crop bottom"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arbeitsfeld.jpg""></div>
         <div class="inner">
             <?php $my_query = new WP_Query('page_id=20'); ?>
 
