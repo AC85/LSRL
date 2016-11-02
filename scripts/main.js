@@ -18,6 +18,10 @@ document.querySelector(".mobile-menu svg").addEventListener("click", function() 
             window.location.href = '/';
             return;
         }
+        if(linkText === "suche") {
+            window.location.href = '/?s=';
+            return;
+        }
 
         var targetSection = document.querySelector("section[data-menu-item=\"" + evt.target.innerText.toLowerCase() + "\"]");
         if(targetSection) {
