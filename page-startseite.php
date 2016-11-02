@@ -45,13 +45,14 @@
         <div class="inner">
             <h3>Lehrveranstaltungen</h3>
             <?php $project_posts = new WP_Query(array('category_name' => 'lehrveranstaltungen')); ?>
-            <?php while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
+            <?php if($project_posts->have_posts()):
+                while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
                 <article>
                     <a href="<?php the_permalink(); ?>">
                         <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
                             <?php if (get_sub_field('titelbild')) : ?>
                                 <?php $image = get_sub_field('bild'); ?>
-                                <div class="image-crop"><img src="<?php echo $image['url']; ?>"
+                                <div class="image-crop"><img src="<?php echo $image['sizes']['medium']; ?>"
                                                              alt="<?php echo $image['alt']; ?>"/></div>
                             <?php endif; ?>
                         <?php endwhile; endif; ?>
@@ -60,6 +61,9 @@
                     </a>
                 </article>
             <?php endwhile; ?>
+            <?php else: ?>
+                <p>Es sind zur Zeit keine Lehveranstaltungen online.</p>
+            <?php endif; ?>
         </div>
     </section>
     <section class="col u-1-5 active" data-menu-item="projekte">
@@ -67,13 +71,14 @@
         <div class="inner">
             <h3>Projekte</h3>
             <?php $project_posts = new WP_Query(array('category_name' => 'projekte', 'posts_per_page' => 5)); ?>
-            <?php while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
+            <?php if($project_posts->have_posts()):
+                while ($project_posts->have_posts()) : $project_posts->the_post(); ?>
                 <article project-id="<?php the_ID(); ?>">
                     <a href="<?php the_permalink(); ?>">
                         <?php if (have_rows('beitragsbilder')): while (have_rows('beitragsbilder')): the_row(); ?>
                             <?php if (get_sub_field('titelbild')) : ?>
                                 <?php $image = get_sub_field('bild'); ?>
-                                <div class="image-crop"><img src="<?php echo $image['url']; ?>"
+                                <div class="image-crop"><img src="<?php echo $image['sizes']['medium']; ?>"
                                                              alt="<?php echo $image['alt']; ?>"/></div>
                             <?php endif; ?>
                         <?php endwhile; endif; ?>
@@ -82,6 +87,9 @@
                     </a>
                 </article>
             <?php endwhile; ?>
+            <?php else: ?>
+                <p>Es sind zur Zeit keine Projekte online.</p>
+            <?php endif; ?>
         </div>
     </section>
     <section class="col u-1-5" data-menu-item="arbeitsfeld">
